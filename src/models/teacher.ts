@@ -12,7 +12,7 @@ const TeacherSchema: Schema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  class: { type: Schema.Types.ObjectId, ref: 'Class', required: true }
+  class: { type: Schema.Types.ObjectId, ref: 'Class' }
 });
 
 export default mongoose.model<ITeacher>('Teacher', TeacherSchema);

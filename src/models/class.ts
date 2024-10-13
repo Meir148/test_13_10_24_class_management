@@ -12,7 +12,7 @@ export interface IClass extends Document {
 
 const ClassSchema: Schema<IClass> = new Schema({
   name: { type: String, required: true },
-  teacher: { type: Schema.Types.ObjectId, ref: 'Teacher', required: true },
+  teacher: { type: Schema.Types.ObjectId, ref: 'Teacher' },
   students: [{ type: Schema.Types.ObjectId, ref: 'Student' }],
 });
 
