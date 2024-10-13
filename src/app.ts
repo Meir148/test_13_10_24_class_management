@@ -4,9 +4,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
-// import authRoutes from './routes/auth';
+import authRoutes from './routes/auth';
 import teacherRoutes from './routes/teacher';
-// import studentRoutes from './routes/student';
+import studentRoutes from './routes/student';
 
 dotenv.config();
 
@@ -33,9 +33,9 @@ const openapiSpecification = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Routes
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/teacher', teacherRoutes);
-// app.use('/api/student', studentRoutes);
+app.use('/api/student', studentRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
